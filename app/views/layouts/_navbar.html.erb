@@ -3,16 +3,16 @@
     <%= link_to 'HOME', root_path, class: 'brand-logo', style: 'padding-left:15px' %>
     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
-      <li><a href="sass.html">Sass</a></li>
-      <li><a href="badges.html">Components</a></li>
-      <li><a href="collapsible.html">Javascript</a></li>
-      <li><a href="mobile.html">Mobile</a></li>
+      <% if signed_in? %>
+        <li><a href="sass.html">My Bookings</a></li>
+        <li><a href="badges.html">Available Bookings</a></li>
+        <li><%= link_to 'Sign Out', signout_path, method: :delete %></li>
     </ul>
     <ul class="side-nav" id="mobile-demo">
-      <li><a href="sass.html">Sass</a></li>
-      <li><a href="badges.html">Components</a></li>
-      <li><a href="collapsible.html">Javascript</a></li>
-      <li><a href="mobile.html">Mobile</a></li>
+      <li><a href="sass.html">My Bookings</a></li>
+      <li><a href="badges.html">Available Bookings</a></li>
+      <li><%= link_to 'Sign Out', signout_path, method: :delete %></li>
+      <% end %>
     </ul>
   </div>
 </nav>

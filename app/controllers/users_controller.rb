@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     flash[:success] = "Welcome to this Booking System."
     if @user.save
+      sign_in @user 
       redirect_to @user
     else
       render 'new'
