@@ -1,16 +1,21 @@
 <nav>
   <div class="nav-wrapper">
-    <%= link_to 'HOME', root_path, class: 'brand-logo', style: 'padding-left:15px' %>
-    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+    <% if signed_out? %>
+      <%= link_to 'A Simple Booking System', root_path, class: 'brand-logo center' %>
+    <% end %>
+    <% if signed_in? %>
+      <%= link_to 'HOME', root_path, class: 'brand-logo', style: 'padding-left:15px' %>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
-      <% if signed_in? %>
-        <li><a href="sass.html">My Bookings</a></li>
-        <li><a href="badges.html">Available Bookings</a></li>
-        <li><%= link_to 'Sign Out', signout_path, method: :delete %></li>
+      <li><a href="sass.html">My Bookings</a></li>
+      <li><a href="badges.html">Available Bookings</a></li>
+      <li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
+      <li><%= link_to 'Sign Out', signout_path, method: :delete %></li>
     </ul>
     <ul class="side-nav" id="mobile-demo">
       <li><a href="sass.html">My Bookings</a></li>
       <li><a href="badges.html">Available Bookings</a></li>
+      <li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
       <li><%= link_to 'Sign Out', signout_path, method: :delete %></li>
       <% end %>
     </ul>
