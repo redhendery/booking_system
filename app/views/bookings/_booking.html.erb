@@ -1,0 +1,5 @@
+<li>
+  <%= booking.name %> <%= booking.date %> <%= booking.time %>
+  <%= link_to 'Edit', edit_booking_path(booking) %>
+  <%= link_to 'Delete Booking', booking, method: :delete, data: { confirm: 'Are you sure?' } %>
+</li>

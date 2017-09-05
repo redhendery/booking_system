@@ -1,3 +1,4 @@
 class Booking < ApplicationRecord
-  belongs_to :user
+  validates :name, presence: true, length: { minimum: 3 }
+  validates :date, :time, presence: true
 end

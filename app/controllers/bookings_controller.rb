@@ -17,8 +17,8 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-
     if @booking.save
+      flash[:success] = "Thank you. Your booking has been made."
       redirect_to @booking
     else
       render 'new'
@@ -27,8 +27,8 @@ class BookingsController < ApplicationController
 
   def update
     @booking = Booking.find(params[:id])
-
     if @booking.update(booking_params)
+      flash[:success] = "Your booking has been updated."
       redirect_to @booking
     else
       render 'edit'
@@ -37,8 +37,7 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking = Booking.find(params[:id])
-    @booking.destory
-
+    @booking.destroy
     redirect_to bookings_path
   end
 

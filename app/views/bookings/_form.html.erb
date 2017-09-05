@@ -1,0 +1,14 @@
+<%= form_for @booking do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :date %>
+  <%= f.date_field :date %>
+
+  <%= f.label :time %>
+  <%= f.time_field :time %>
+
+  <%= f.submit yield(:button_text), class: 'btn btn-primary' %>
+
+<% end %>
