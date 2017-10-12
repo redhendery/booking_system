@@ -1,0 +1,17 @@
+<%= form_for @booking do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name, value: current_user.name %>
+
+  <%= f.label :date %>
+  <%= f.date_field :date, value: Date.today %>
+
+  <%= f.label :time %>
+  <%= f.time_field :time %>
+
+  <div style="padding-top:15px;">
+    <%= f.submit yield(:button_text), class: 'btn btn-primary' %>
+    <%= link_to 'Cancel', bookings_path, class: 'btn btn-primary' %>
+  </div>
+  
+<% end %>

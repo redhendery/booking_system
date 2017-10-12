@@ -5,6 +5,8 @@ class CreateBookings < ActiveRecord::Migration[5.1]
       t.date :date
       t.time :time
 
+      t.integer :user_id
+
       t.timestamps
     end
   end

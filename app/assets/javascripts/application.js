@@ -15,6 +15,8 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+//= require_self
+
 $( document ).ready(function() {
-  $(".button-collapse").sideNav();
+  $('.button-collapse').sideNav();
 })
