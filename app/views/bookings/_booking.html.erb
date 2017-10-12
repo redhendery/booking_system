@@ -1,5 +1,20 @@
-<li>
-  <%= booking.name %> <%= booking.date %> <%= booking.time %>
-  <%= link_to 'Edit', edit_booking_path(booking) %>
-  <%= link_to 'Delete Booking', booking, method: :delete, data: { confirm: 'Are you sure?' } %>
-</li>
+<ul class="bookings">
+  <li>
+    <div class="col s12 m6">
+      <div class="card horizontal hoverable">
+        <div class="card-stacked">
+          <div class="card-content">
+            <h5><%= booking.name %></h5>
+            <p> <%= booking.date.strftime('%A %B %C') %></p>
+            <p><%= booking.time.strftime('%I:%M %p') %></p>
+          </div>
+          <div class="card-action">
+            <%= link_to 'View Booking', booking_path(booking) %>
+            <%= link_to 'Edit Booking', edit_booking_path(booking) %>
+            <%= link_to 'Delete Booking', booking, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>

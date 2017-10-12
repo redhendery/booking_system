@@ -2,6 +2,25 @@ require 'test_helper'
 
 class BookingTest < ActiveSupport::TestCase
   def setup
-    @booking = Booking.new(name: 'Red Hendery', date: '05/29/2107', time: '2:00 PM')
+    @booking = bookings(:one)
+  end
+
+  test "should be valid" do
+    assert @booking.valid?
+  end
+
+  test "name should be present" do
+    assert @booking.name = "    "
+    assert @booking.invalid?
+  end
+
+  test 'date should be present' do
+    assert @booking.date = "  "
+    assert_not @booking.valid?
+  end
+
+  test 'time should be present' do
+    assert @booking.time = "  "
+    assert_not @booking.valid?
   end
 end

@@ -1,1 +1,24 @@
-<p><%= @booking.name %>, your booking is set for <%= @booking.time %> on <%= @booking.date %></p>
+<div style="padding-top:30px;">
+  <ul class="bookings">
+    <li>
+      <div class="col s12 m6">
+        <div class="card horizontal hoverable">
+          <div class="card-stacked">
+            <div class="card-content">
+              <h5><%= @booking.name %></h5>
+              <p> <%= @booking.date.strftime('%A %B %C') %></p>
+              <p><%= @booking.time.strftime('%I:%M %p') %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="center-align" style="padding-top:15px;">
+  <%= link_to 'Edit Booking', edit_booking_path(@booking), class: 'waves-effect waves-light btn' %>
+  <%= link_to 'Delete Booking', @booking, class: 'waves-effect waves-light btn',
+    method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to 'My Bookings', bookings_path, class: 'waves-effect waves-light btn' %>
+</div>

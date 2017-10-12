@@ -1,7 +1,23 @@
-<h1 class="center-align">Your Bookings</h1>
+<h1 class="center-align">
+  <% if current_user.admin? %>
+    All Upcoming Bookings
+  <% elsif current_user.bookings.blank? %>
+    Oh No!
+  <% else %>
+    Your Bookings
+  <% end %>
+</h1>
 
-<ul class="bookings">
-  <%= render @bookings %>
-</ul>
-
-<%= link_to 'New Booking', new_booking_path, class: 'waves-effect waves-light btn' %>
+<% if current_user.bookings.blank? %>
+  <p class="center-align">There are no current bookings for you <%= current_user.name %>.</p>
+  <div class="center-align" style="padding-top:15px;">
+    <%= link_to 'New Booking', new_booking_path, class: 'waves-effect waves-light btn' %>
+  </div>
+<% else %>
+  <div class="row">
+    <%= render @bookings %>
+  </div>
+  <div class="center-align">
+    <%= link_to 'New Booking', new_booking_path, class: 'waves-effect waves-light btn' %>
+  </div>
+<% end %>

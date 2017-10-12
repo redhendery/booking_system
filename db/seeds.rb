@@ -1,4 +1,4 @@
-User.create!([{
+User.create([{
   name: 'Red Hendery',
   email: 'red@email.com',
   password: 'iamred',
@@ -14,10 +14,16 @@ User.create!([{
 
 p "Added #{User.count} Users"
 
-Booking.create(
+Booking.create([{
   name: 'Red Hendery',
-  date: '05/29/2017',
-  time: '2000-01-01 14:10:00 UTC'
-)
+  date: '2017-08-25',
+  time: '2017-08-25 10:51:44',
+  user_id: 1
+}, {
+  name: 'Mike Michaelson',
+  date: '2017-05-25',
+  time: '2017-05-25 10:45:44',
+  user_id: 2
+}])
 
 p "Added #{Booking.count} Bookings"
